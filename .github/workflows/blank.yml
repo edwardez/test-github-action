@@ -29,8 +29,8 @@ jobs:
           PRIVATE_SSH: ${{ secrets.PRIVATE_SSH }}
         run: |
           eval `ssh-agent -s`
-          eval "echo ${{ PRIVATE_SSH }}"
-          ssh-add - <<< '${{ PRIVATE_SSH }}'
+          eval "echo ${{ env.PRIVATE_SSH }}"
+          w - <<< '${{ env.PRIVATE_SSH }}'
 
       - uses: actions/checkout@master
         with:
