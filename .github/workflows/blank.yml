@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@master
         with:
           ssh-key: ${{ secrets.PRIVATE_SSH }}
-          repository: edwardez/bas-data
+          repository: edwardez/bas-data1
           path: main
 
       - uses: actions/setup-node@v4
