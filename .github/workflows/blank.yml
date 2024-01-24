@@ -34,8 +34,7 @@ jobs:
 
       - uses: actions/checkout@master
         with:
-          name: edwardez/bas-data
-          ref: master
+          repository: edwardez/bas-data
 
       - uses: actions/setup-node@v4
         with:
