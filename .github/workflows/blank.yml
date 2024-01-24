@@ -39,7 +39,7 @@ jobs:
         env:
           PRIVATE_SSH: ${{ secrets.PRIVATE_SSH }}
         with:
-          ssh-key: ${{ env.PRIVATE_SSH }}
+          token: ${{ secrets.BAS_DATA_TOKEN }}
           ref: refs/heads/main
           repository: edwardez/bas-data
           path: bas-data
