@@ -33,8 +33,10 @@ jobs:
           w - <<< '${{ env.PRIVATE_SSH }}'
 
       - uses: actions/checkout@master
+        env:
+          PRIVATE_SSH: ${{ secrets.PRIVATE_SSH }}
         with:
-          ssh-key: ${{ secrets.PRIVATE_SSH }}
+          ssh-key: ${{ env.PRIVATE_SSH }}
           ref: refs/heads/main
           repository: edwardez/bas-data
           path: bas-data
