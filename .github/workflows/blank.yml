@@ -36,7 +36,7 @@ jobs:
         with:
           ssh-key: ${{ secrets.PRIVATE_SSH }}
           repository: edwardez/bas-data
-          path: master
+          path: main
 
       - uses: actions/setup-node@v4
         with:
