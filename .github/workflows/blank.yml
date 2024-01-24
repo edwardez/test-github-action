@@ -34,6 +34,7 @@ jobs:
 
       - uses: actions/checkout@master
         with:
+          ssh-key: ${{ secrets.PRIVATE_SSH }}
           repository: edwardez/bas-data
           path: master
 
