@@ -47,7 +47,7 @@ jobs:
       - name: Run npm
         run: |
           cd bas-data
-          echo "ls ."
+          ls .
           npm run dev
-          echo "ls ."
+          ls .
 
