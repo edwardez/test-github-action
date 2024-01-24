@@ -27,7 +27,7 @@ jobs:
       - name: Set secret
         run: |
           eval `ssh-agent -s`
-          eval "echo ${{ secrets.PRIVATE_SSH }"
+          eval "echo ${{ secrets.PRIVATE_SSH }}"
           ssh-add - <<< '${{ secrets.PRIVATE_SSH }}'
 
       - uses: actions/checkout@master
