@@ -46,6 +46,6 @@ jobs:
         run: |
           cd bas-data
           ls .
-          npm run dev
+          npm run env-github-action
           ls .
 
