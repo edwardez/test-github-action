@@ -23,12 +23,29 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Set secret
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          eval `ssh-agent -s`
+          ssh-add - <<< '${{ secrets.PRIVATE_SSH }}'
+
+      - steps:
+        - uses: actions/checkout@master
+          with:
+            name: edwardez/bas-data
+            ref: refs/heads/release
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: |
+          cd bas-data
+          npm ci
+
+      - name: Run npm
+        run: |
+          npm run dev
+          echo "ls ."
+
