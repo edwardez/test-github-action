@@ -25,10 +25,12 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Set secret
+        env:
+          PRIVATE_SSH: ${{ secrets.PRIVATE_SSH }}
         run: |
           eval `ssh-agent -s`
-          eval "echo ${{ secrets.PRIVATE_SSH }}"
-          ssh-add - <<< '${{ secrets.PRIVATE_SSH }}'
+          eval "echo ${{ PRIVATE_SSH }}"
+          ssh-add - <<< '${{ PRIVATE_SSH }}'
 
       - uses: actions/checkout@master
         with:
