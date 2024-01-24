@@ -29,11 +29,10 @@ jobs:
           eval `ssh-agent -s`
           ssh-add - <<< '${{ secrets.PRIVATE_SSH }}'
 
-      - steps:
-        - uses: actions/checkout@master
-          with:
-            name: edwardez/bas-data
-            ref: refs/heads/release
+      - uses: actions/checkout@master
+        with:
+          name: edwardez/bas-data
+          ref: refs/heads/release
 
       - uses: actions/setup-node@v4
         with:
