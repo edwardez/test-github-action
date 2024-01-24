@@ -24,7 +24,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/heads/main
+          repository: lonqie/SchaleDB
+          path: SchaleDB
 
       - uses: actions/checkout@master
         with:
@@ -33,19 +39,20 @@ jobs:
           repository: edwardez/bas-data
           path: bas-data
 
+      - name: Prepare env
+        run: |
+          cp SchaleDB/data/config.json bas-data/resources/schaledb
+          cp SchaleDB/data/stages.json bas-data/resources/schaledb
+          cp SchaleDB/data/jp/equipment.json bas-data/resources/schaledb
+          cd bas-data
+          npm ci
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install deps
-        run: |
-          cd bas-data
-          npm ci
 
       - name: Run npm
         run: |
           cd bas-data
-          ls .
           npm run dev
-          ls .
-
