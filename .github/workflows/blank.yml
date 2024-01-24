@@ -41,7 +41,7 @@ jobs:
 
       - name: Prepare env
         run: |
-          cp SchaleDB/data/config.json bas-data/resources/schaledb
+          cp SchaleDB/data/conf1ig.json bas-data/resources/schaledb
           cp SchaleDB/data/stages.json bas-data/resources/schaledb
           cp SchaleDB/data/jp/equipment.json bas-data/resources/schaledb
           cd bas-data
